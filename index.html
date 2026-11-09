@@ -94,6 +94,10 @@
             Next
         </button>
 
+        <button id="fullscreenBtn" onclick="toggleFullscreen()">
+            Full Screen
+        </button>
+        
     </footer>
 
     <script>
@@ -131,12 +135,32 @@
             if (event.key === "ArrowRight") {
                 changeSlide(1);
             }
-
+        
             if (event.key === "ArrowLeft") {
                 changeSlide(-1);
             }
-
+        
+            if (event.key.toLowerCase() === "f") {
+                toggleFullscreen();
+            }
+        
         });
+
+        function toggleFullscreen() {
+
+            if (!document.fullscreenElement) {
+        
+                document.documentElement.requestFullscreen()
+                    .catch(err => {
+                        alert("Unable to enter fullscreen mode: " + err.message);
+                    });
+        
+            } else {
+        
+                document.exitFullscreen();
+        
+            }
+        }
 
     </script>
 
