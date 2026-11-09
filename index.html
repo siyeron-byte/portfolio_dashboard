@@ -84,7 +84,7 @@
         Previous
     </button>
 
-    <span id="counter">1 / 10</span>
+    <span id="counter">1 / 6</span>
 
     <button id="next" onclick="changeSlide(1)">
         Next
@@ -106,8 +106,8 @@
             currentSlide = totalSlides;
         }
 
-        document.getElementById("slides").src =
-            "slides/slide" + currentSlide + ".JPG";
+        document.getElementById("slide").src =
+            "slides/Slide" + currentSlide + ".JPG";
 
         document.getElementById("counter").textContent =
             currentSlide + " / " + totalSlides;
