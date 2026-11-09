@@ -97,13 +97,23 @@
         <button id="fullscreenBtn" onclick="toggleFullscreen()">
             Full Screen
         </button>
-        
+
     </footer>
 
     <script>
 
-        const totalSlides = 7;
+        const slideFiles = [
+            "Slide1.JPG",
+            "Slide2.JPG",
+            "Slide3.JPG",
+            "Slide4.JPG",
+            "Slide5.JPG",
+            "Slide6.JPG",
+            "Slide7.jpg"
+        ];
+
         let currentSlide = 1;
+        const totalSlides = slideFiles.length;
 
         function changeSlide(direction) {
 
@@ -118,7 +128,7 @@
             }
 
             document.getElementById("slide").src =
-                "slides/Slide" + currentSlide + ".JPG";
+                "slides/" + slideFiles[currentSlide - 1];
 
             document.getElementById("counter").textContent =
                 currentSlide + " / " + totalSlides;
@@ -135,34 +145,9 @@
             if (event.key === "ArrowRight") {
                 changeSlide(1);
             }
-        
+
             if (event.key === "ArrowLeft") {
                 changeSlide(-1);
             }
-        
-            if (event.key.toLowerCase() === "f") {
-                toggleFullscreen();
-            }
-        
-        });
 
-        function toggleFullscreen() {
-
-            if (!document.fullscreenElement) {
-        
-                document.documentElement.requestFullscreen()
-                    .catch(err => {
-                        alert("Unable to enter fullscreen mode: " + err.message);
-                    });
-        
-            } else {
-        
-                document.exitFullscreen();
-        
-            }
-        }
-
-    </script>
-
-</body>
-</html>
+            if (event
